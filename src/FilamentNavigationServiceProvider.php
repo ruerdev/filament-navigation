@@ -28,7 +28,7 @@ class FilamentNavigationServiceProvider extends PluginServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->bind(FilamentNavigationManager::class, function() {
+        $this->app->scoped(FilamentNavigationManager::class, function() {
             return new FilamentNavigationManager();
         });
 
