@@ -34,17 +34,26 @@ class FilamentNavigationManager
     public function getItemTypes(): array
     {
         $this->itemTypes = [
-            'Category Link' => [
-                Select::make('category_id')
-                    ->searchable()
-                    ->options(function () {
-                        return Category::pluck('name', 'id');
-                    }),
+            [
+                'name' => 'Category Link',
+                'fields' => [
+                    Select::make('category_id')
+                        ->searchable()
+                        ->options(function () {
+                            return Category::pluck('name', 'id');
+                        }),
+                ],
             ],
-            'Internal Link' => [
-                TextInput::make('link'),
+            [
+                'name' => 'Internal Link',
+                'fields' => [
+                    TextInput::make('link'),
+                ],
             ],
-            'Text' => [],
+            [
+                'name' => 'Text',
+                'fields' => [],
+            ],
         ];
 
         return array_merge([
