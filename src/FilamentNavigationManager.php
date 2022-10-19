@@ -7,6 +7,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
+use Ruer\Shop\Models\Category;
 use RyanChandler\FilamentNavigation\Models\Navigation;
 
 class FilamentNavigationManager
@@ -32,6 +33,20 @@ class FilamentNavigationManager
 
     public function getItemTypes(): array
     {
+        $this->itemTypes = [
+            'Category Link' => [
+                Select::make('category_id')
+                    ->searchable()
+                    ->options(function () {
+                        return Category::pluck('name', 'id');
+                    }),
+            ],
+            'Internal Link' => [
+                TextInput::make('link'),
+            ],
+            'Text' => [],
+        ];
+
         return array_merge([
             'external-link' => [
                 'name' => __('filament-navigation::filament-navigation.attributes.external-link'),
