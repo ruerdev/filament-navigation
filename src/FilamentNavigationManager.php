@@ -34,7 +34,7 @@ class FilamentNavigationManager
     public function getItemTypes(): array
     {
         $this->itemTypes = [
-            [
+            'category-link' => [
                 'name' => 'Category Link',
                 'fields' => [
                     Select::make('category_id')
@@ -44,13 +44,13 @@ class FilamentNavigationManager
                         }),
                 ],
             ],
-            [
+            'internal-link' => [
                 'name' => 'Internal Link',
                 'fields' => [
                     TextInput::make('link'),
                 ],
             ],
-            [
+            'text' => [
                 'name' => 'Text',
                 'fields' => [],
             ],
