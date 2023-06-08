@@ -4,27 +4,18 @@ namespace RyanChandler\FilamentNavigation;
 
 use Filament\PluginServiceProvider;
 use RyanChandler\FilamentNavigation\Filament\Resources\NavigationResource;
-use Spatie\LaravelPackageTools\Package;
 
 class FilamentNavigationServiceProvider extends PluginServiceProvider
 {
     public static string $name = 'filament-navigation';
 
-    protected array $resources = [
-        NavigationResource::class,
+    protected array $styles = [
+        'navigation-styles' => __DIR__ . '/../resources/dist/plugin.css',
     ];
 
-    protected function getStyles(): array
-    {
-        return [
-            asset('vendor/filament-navigation/plugin.css'),
-        ];
-    }
-
-    public function packageConfigured(Package $package): void
-    {
-        $package->hasAssets();
-    }
+    protected array $beforeCoreScripts = [
+        'navigation-scripts' => __DIR__ . '/../resources/dist/plugin.js',
+    ];
 
     public function packageRegistered(): void
     {
@@ -42,5 +33,12 @@ class FilamentNavigationServiceProvider extends PluginServiceProvider
         ]);
 
         parent::packageBooted();
+    }
+
+    protected function getResources(): array
+    {
+        return [
+            config('filament-navigation.navigation_resource') ?? NavigationResource::class,
+        ];
     }
 }

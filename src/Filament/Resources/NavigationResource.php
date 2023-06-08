@@ -19,8 +19,6 @@ use RyanChandler\FilamentNavigation\Models\Navigation;
 
 class NavigationResource extends Resource
 {
-    protected static ?string $model = Navigation::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-menu';
 
     protected static bool $showTimestamps = true;
@@ -89,32 +87,32 @@ class NavigationResource extends Resource
 
     public static function navigationLabel(?string $string): void
     {
-        static::$workNavigationLabel = $string;
+        self::$workNavigationLabel = $string;
     }
 
     public static function pluralLabel(?string $string): void
     {
-        static::$workPluralLabel = $string;
+        self::$workPluralLabel = $string;
     }
 
     public static function label(?string $string): void
     {
-        static::$workLabel = $string;
+        self::$workLabel = $string;
     }
 
     protected static function getNavigationLabel(): string
     {
-        return static::$workNavigationLabel ?? parent::getNavigationLabel();
+        return self::$workNavigationLabel ?? parent::getNavigationLabel();
     }
 
     public static function getLabel(): ?string
     {
-        return static::$workLabel ?? parent::getLabel();
+        return self::$workLabel ?? parent::getLabel();
     }
 
     public static function getPluralLabel(): ?string
     {
-        return static::$workPluralLabel ?? parent::getPluralLabel();
+        return self::$workPluralLabel ?? parent::getPluralLabel();
     }
 
     public static function table(Table $table): Table
@@ -148,5 +146,10 @@ class NavigationResource extends Resource
             'create' => NavigationResource\Pages\CreateNavigation::route('/create'),
             'edit' => NavigationResource\Pages\EditNavigation::route('/{record}'),
         ];
+    }
+
+    public static function getModel(): string
+    {
+        return config('filament-navigation.navigation_model') ?? Navigation::class;
     }
 }
