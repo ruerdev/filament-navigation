@@ -2,6 +2,57 @@
 
 All notable changes to `filament-navigation` will be documented in this file.
 
+## v1.0.0-beta5 - 2024-03-13
+
+* Add support for Laravel 11.x
+
+## v1.0.0-beta4 - 2023-09-01
+
+### What's Changed
+
+- Spanish translation by @neurotools in https://github.com/ryangjchandler/filament-navigation/pull/92
+
+### New Contributors
+
+- @neurotools made their first contribution in https://github.com/ryangjchandler/filament-navigation/pull/92
+
+**Full Changelog**: https://github.com/ryangjchandler/filament-navigation/compare/v1.0.0-beta3...v1.0.0-beta4
+
+## v1.0.0-beta3 - 2023-08-07
+
+### What's Changed
+
+- Replace redundant config with filament plugin method by @howdu in https://github.com/ryangjchandler/filament-navigation/pull/86
+- fix: remove conditions on dark-mode classes by @mrfade in https://github.com/ryangjchandler/filament-navigation/pull/85
+
+### New Contributors
+
+- @mrfade made their first contribution in https://github.com/ryangjchandler/filament-navigation/pull/85
+
+**Full Changelog**: https://github.com/ryangjchandler/filament-navigation/compare/v1.0.0-beta2...v1.0.0-beta3
+
+## v1.0.0-beta2 - 2023-08-04
+
+### What's Changed
+
+- switch icon component to svg by @atmonshi in https://github.com/ryangjchandler/filament-navigation/pull/84
+
+### New Contributors
+
+- @atmonshi made their first contribution in https://github.com/ryangjchandler/filament-navigation/pull/84
+
+**Full Changelog**: https://github.com/ryangjchandler/filament-navigation/compare/v1.0.0-beta1...v1.0.0-beta2
+
+## v1.0.0-beta1 - 2023-08-04
+
+This release marks the start of the `v1.0.0` series of releases.
+
+It introduces support for Filament v3.x and removes support for v2.x.
+
+To upgrade your application and this package, please consult the [`UPGRADE`](UPGRADE.md) guide.
+
+**Full Changelog**: https://github.com/ryangjchandler/filament-navigation/compare/v0.5.0...v1.0.0-beta1
+
 ## v0.5.0 - 2023-02-15
 
 ### What's Changed
@@ -158,6 +209,11 @@ composer update
 php artisan view:clear
 php artisan vendor:publish --tag="filament-navigation-assets"
 php artisan migrate
+
+
+
+
+
 
 
 
